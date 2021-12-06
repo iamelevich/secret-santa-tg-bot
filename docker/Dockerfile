@@ -8,7 +8,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install make git
 RUN make vendor
 RUN make -d
 
-FROM debian:buster-slim
+FROM debian:buster-slim as prod
 
 RUN adduser --home /app --disabled-password --gecos "" app ;\
 	apt update ;\

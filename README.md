@@ -27,10 +27,12 @@ cp .env.example .env
 
 ### Makefile
 
-| Command       | Description                         |
-| ------------- | ----------------------------------- |
-| `make vendor` | Just run `go mod vendor`            |
-| `make build`  | Build binry with help of `go build` |
+| Command            | Description                         |
+| ------------------ | ----------------------------------- |
+| `make vendor`      | Just run `go mod vendor`            |
+| `make build`       | Build binry with help of `go build` |
+| `make docker`      | Build docker image                  |
+| `make docker_push` | Push image to docker hub            |
 
 ## Running
 

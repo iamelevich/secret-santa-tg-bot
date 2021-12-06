@@ -2,11 +2,13 @@ version: '3.1'
 
 services:
 
-  secret-santa-bot:
+  secret-santa-tg-bot:
     build:
       context: ../
       dockerfile: docker/Dockerfile
-    container_name: secret-santa-bot
+      target: prod
+    image: beer13/secret-santa-tg-bot:latest
+    container_name: secret-santa-tg-bot
     restart: always
     env_file:
       - ../.env
