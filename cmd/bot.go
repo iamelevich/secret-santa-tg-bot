@@ -31,7 +31,7 @@ func initBot() *tgbotapi.BotAPI {
 	if err != nil {
 		log.Panic().Err(err).Stack().Msg("No bot token")
 	}
-	bot.Debug = false
+	bot.Debug = true
 
 	log.Info().Msg(fmt.Sprintf("Authorized on account %s", bot.Self.UserName))
 	return bot

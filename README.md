@@ -1,6 +1,7 @@
 # Secret Santa Bot
 
 Simple bot to create secret santa in your company.
+Note: If you want to use it with you bot_token - you need to change all fileIds in `pkg/updates/media.go` cause Telegram API meke fileId unique for each bot.
 
 ## Configuration
 
@@ -19,10 +20,10 @@ cp .env.example .env
 | `MONGODB_DATABASE`                | `dbname`                                           |
 | `MONGO_INITDB_ROOT_USERNAME`      | `db_username`                                      |
 | `MONGO_INITDB_ROOT_PASSWORD`      | `dp_password`                                      |
-| `ME_CONFIG_MONGODB_ADMINUSERNAME` | `db_username_for_gui`                              |
-| `ME_CONFIG_MONGODB_ADMINPASSWORD` | `dp_password_for_gui`                              |
-| `ME_CONFIG_BASICAUTH_USERNAME`    | `db_username`                                      |
-| `ME_CONFIG_BASICAUTH_PASSWORD`    | `dp_password`                                      |
+| `ME_CONFIG_MONGODB_ADMINUSERNAME` | `db_username`                                      |
+| `ME_CONFIG_MONGODB_ADMINPASSWORD` | `dp_password`                                      |
+| `ME_CONFIG_BASICAUTH_USERNAME`    | `db_username_for_gui`                              |
+| `ME_CONFIG_BASICAUTH_PASSWORD`    | `dp_password_for_gui`                              |
 | `ME_CONFIG_MONGODB_URL`           | `mongodb://db_username:dp_password@mongodb:27017/` |
 
 ### Makefile
