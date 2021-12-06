@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+
+  secret-santa-bot:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    container_name: secret-santa-bot
+    restart: always
+    env_file:
+      - ../.env
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo
+    restart: always
+    volumes:
+      - ../database:/data/db
+    env_file:
+      - ../.env
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    env_file:
+      - ../.env
