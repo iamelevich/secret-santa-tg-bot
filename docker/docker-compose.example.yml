@@ -1,0 +1,36 @@
+version: '3.1'
+
+services:
+
+  secret-santa-tg-bot:
+    image: beer13/secret-santa-tg-bot:latest
+    restart: always
+    environment:
+      TELEGRAM_BOT_API_TOKEN: token
+      MONGODB_URL: mongodb://secret_santa:secret_santa_password@mongodb:27017/
+      MONGODB_DATABASE: secret_santa
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo
+    restart: always
+    volumes:
+      - ./mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: secret_santa
+      MONGO_INITDB_ROOT_PASSWORD: secret_santa_password
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongodb
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: secret_santa
+      ME_CONFIG_MONGODB_ADMINPASSWORD: secret_santa_password
+      ME_CONFIG_BASICAUTH_USERNAME: secret_santa
+      ME_CONFIG_BASICAUTH_PASSWORD: secret_santa_password
+      ME_CONFIG_MONGODB_URL: mongodb://secret_santa:secret_santa_password@mongodb:27017/
